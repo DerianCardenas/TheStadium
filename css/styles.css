@@ -94,6 +94,16 @@ header ul{
     width: 400px;
     height: 400px;
 }
+.degr{
+    height: 150px;
+    background: rgb(0,95,115);
+    background: linear-gradient(180deg, rgba(0,95,115,1) 0%, rgba(0,180,216,1) 100%);
+}
+.degrinv{
+    height: 150px;
+    background: rgb(0,95,115);
+    background: linear-gradient(180deg, rgba(0,180,216,1) 0%,rgba(0,95,115,1) 100%);
+}
 .complement{
     background-color: #00b4d8;
 }
@@ -104,6 +114,9 @@ header ul{
     grid-template-columns: 1fr 1fr;
     width: 80%;
     padding-bottom: 4em;
+}
+.contcards a{
+    text-decoration: none;
 }
 .card{
     padding-top: 2em;
@@ -119,6 +132,7 @@ header ul{
     color: white;
     font-size: 1.4em;
     background-color: #005f73;
+    cursor: pointer;
 }
 .card h3{
     color: yellow;
@@ -127,4 +141,22 @@ header ul{
 .icono{
     width: 2em;
     height: 2em;
+}
+.topleagues{
+    padding: 2em;
+    background-color: #005f73;
+    display: block;
+}
+.topleagues h3{
+    color: yellow;
+    font-size: 2em;
+    text-align: center;
+}
+.topleagues1{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.topleagues2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
