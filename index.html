@@ -32,36 +32,95 @@
                 </div>
             </div>
         </div>
+        <section class="degr">
+        </section>
         <section class="complement">   
             <div class="contcards">
-                <div class="card">
-                    <img class="icono" src="assets/leagues.svg">
-                    <h3>Leagues</h3>
-                    <p>Check the list of all teams in the world.<br>
-                        You can make querys of each team</p>
+                <a href="leagues.html">
+                    <div class="card">
+                        <img class="icono" src="assets/leagues.svg">
+                        <h3>Leagues</h3>
+                        <p>Check the list of all teams in the world.<br>
+                            You can make querys of each team</p>
+                    </div>
+                </a>
+                <a href="players.html">
+                    <div class="card">
+                        <img class="icono" src="assets/players.svg">
+                        <h3>Players</h3>
+                        <p>Check the list of all teams in the world.<br>
+                            You can make querys of each team</p>
+                    </div>
+                </a>
+                <a href="teams.html">
+                    <div class="card">
+                        <img class="icono" src="assets/teams.svg">
+                        <h3>Teans</h3>
+                        <p>Check the list of all teams in the world.<br>
+                            You can make querys of each team</p>
+                    </div>
+                </a>
+                <a href="coaches.html">
+                    <div class="card">
+                        <img class="icono" src="assets/coaches.svg">
+                        <h3>Coaches</h3>
+                        <p>Check the list of all teams in the world.<br>
+                            You can make querys of each team</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section class="degrinv">
+        </section>
+        <section class="topleagues">
+            <h3>TOP 5 LEAGUES</h3>
+            <div class="topleagues1">
+                <div class="leagues">
+
                 </div>
-                <div class="card">
-                    <img class="icono" src="assets/players.svg">
-                    <h3>Players</h3>
-                    <p>Check the list of all teams in the world.<br>
-                        You can make querys of each team</p>
+                <div class="leagues">
+
                 </div>
-                <div class="card">
-                    <img class="icono" src="assets/teams.svg">
-                    <h3>Teans</h3>
-                    <p>Check the list of all teams in the world.<br>
-                        You can make querys of each team</p>
+                <div class="leagues">
+
                 </div>
-                <div class="card">
-                    <img class="icono" src="assets/coaches.svg">
-                    <h3>Coaches</h3>
-                    <p>Check the list of all teams in the world.<br>
-                        You can make querys of each team</p>
+            </div>
+            <div class="topleagues2">
+                <div class="leagues">
+
+                </div>
+                <div class="leagues">
+
                 </div>
             </div>
         </section>
    </body>
    <footer>
+       <script  type="text/javascript">
+           fetch("https://v3.football.api-sports.io/players/topscorers?season=2021&league=61", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "v3.football.api-sports.io",
+                    "x-rapidapi-key": "14f44082a9ec83a9b7546335315189b7"
+                }
+            })
+            .then(response => response.json())
+			.then(result => console.log(result.response))
+			.catch(error => console.log('error', error));
 
+            fetch("https://v3.football.api-sports.io/leagues?search=bundesliga 1", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "v3.football.api-sports.io",
+                    "x-rapidapi-key": "14f44082a9ec83a9b7546335315189b7"
+                }
+            })
+            .then(response => response.json())
+			.then(result => console.log(result))
+			.catch(error => console.log('error', error));
+            function crealigas(result){
+                
+            }
+       </script>
    </footer>
 </html>
