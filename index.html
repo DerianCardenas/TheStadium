@@ -14,7 +14,7 @@
            <li class="menu_items"><a href="players.html" class="linksmenu">Players</a></li>
            <li class="menu_items"><a href="coaches.html" class="linksmenu">Coaches</a></li>
        </ul>
-       <i class="fas fa-bars"></i>
+       <i id="burger" class="fas fa-bars"></i>
    </header>
    <body>
         <div class="start">
@@ -75,52 +75,26 @@
         <section class="topleagues">
             <h3>TOP 5 LEAGUES</h3>
             <div class="topleagues1">
-                <div class="leagues">
+                <div class="leagues" id="premier">
 
                 </div>
-                <div class="leagues">
+                <div class="leagues" id="lfp">
 
                 </div>
-                <div class="leagues">
+                <div class="leagues" id="atim">
 
                 </div>
             </div>
             <div class="topleagues2">
-                <div class="leagues">
-
+                <div class="leagues" id="bundes">
                 </div>
-                <div class="leagues">
-
+                <div class="leagues" id="ligue1">   
                 </div>
             </div>
         </section>
    </body>
    <footer>
-       <script  type="text/javascript">
-           fetch("https://v3.football.api-sports.io/players/topscorers?season=2021&league=61", {
-                "method": "GET",
-                "headers": {
-                    "x-rapidapi-host": "v3.football.api-sports.io",
-                    "x-rapidapi-key": "14f44082a9ec83a9b7546335315189b7"
-                }
-            })
-            .then(response => response.json())
-			.then(result => console.log(result.response))
-			.catch(error => console.log('error', error));
-
-            fetch("https://v3.football.api-sports.io/leagues?search=bundesliga 1", {
-                "method": "GET",
-                "headers": {
-                    "x-rapidapi-host": "v3.football.api-sports.io",
-                    "x-rapidapi-key": "14f44082a9ec83a9b7546335315189b7"
-                }
-            })
-            .then(response => response.json())
-			.then(result => console.log(result))
-			.catch(error => console.log('error', error));
-            function crealigas(result){
-                
-            }
-       </script>
+       <script src="js/header.js"></script>
+       <script src="js/conectaligas.js"></script>
    </footer>
 </html>
