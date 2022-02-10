@@ -1,0 +1,123 @@
+body{
+    background-color: #00b4d8;
+}
+h3{
+    color: yellow;
+    font-size: 2em;
+    text-align: center;
+}
+.contbusq{
+    width: 100%;
+    background-color: #005f73;
+    padding: 3em 0;
+}
+.busqueda{
+    display: flex;
+    padding-top: 1.5em;
+    width: 40%;
+    margin: 0 auto;
+    align-items: center;
+    justify-items: center;
+}
+.searchbar, .searchbtn{
+    margin: 0 auto;
+}
+.searchbar{
+    width: 70%;
+    padding-left: .5em;
+    height: 2em;
+    border-radius: 1em;
+    border-color: yellow;
+}
+.searchbtn{
+    height: 2em;
+    border-radius: 1em;
+    color: #005f73;
+    width: 25%;
+    font-size: 1em;
+    font-weight: bolder;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.searchbtn:hover{
+    color: #005f73;
+    background-color: #0ecef5;
+    cursor: pointer;
+}
+#resultados{
+    background-color: #00b4d8;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 100%;
+}/* Aqui comienza la carta */
+.card {
+    border-radius: 16px;
+    margin: 1em auto;
+    width: 80%;
+    max-width: 100%;
+    max-height: 400px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+      0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+      0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;  
+    z-index: auto;
+    background-size: cover;
+    background:content-box;
+    background-size: cover;
+  }
+  
+  .info {
+    position: relative;
+    width: 100%;
+    max-height: 400px;
+    background-color: #fff;
+    transform: translateY(100%)
+      translateY(-88px)
+      translateZ(0);
+    transition: transform 0.5s ease-out;
+  }
+  
+  .info:before {
+    z-index: -1;
+    display: block;
+    position: absolute;
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    filter: blur(10px);
+    background-size: cover;
+    opacity: 0.25;
+    transform: translateY(-100%)
+      translateY(88px)
+      translateZ(0);
+    transition: transform 0.5s ease-out;
+  }
+  
+  .card:hover .info,
+  .card:hover .info:before {
+    transform: translateY(0) translateZ(0);
+  }
+  
+  .title {
+    margin: 0;
+    padding: 24px;
+    font-size: 25px;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.87);
+  }
+  
+  .description {
+    margin: 0;
+    padding: 0 24px 24px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #005f73;
+    padding-bottom: 5em;
+  }
+  .description img{
+      height: 90px;
+      width: 120px;
+  }
