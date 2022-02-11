@@ -18,12 +18,31 @@
        <i id="burger" class="fas fa-bars"></i>
    </header>
    <body>
-       <div class="contbusq">
-        <h3> Search name of some leagues</h3>
-            <div class ="busqueda" id="busqueda">
-                <input type="text" class="searchbar" id="searchbar" placeholder="League...">
-                <input type="button" value="Search" class="searchbtn" id="searchbtn"> 
+       <div class="contbusqs">
+            <div class="contbusq">
+                <h3> Search leagues using its names</h3>
+                <p>Tip: Use this if you don´t know the ID of the league that you want </p>
+                    <div class ="busqueda" id="busqueda">
+                        <input type="text" class="searchbar" id="searchbar" placeholder="League...">
+                        <input type="button" value="Search" class="searchbtn" id="searchbtn"> 
+                    </div>
             </div>
+           <div class="contbusqid">
+               <h3>Search ONE league using its ID</h3>
+               <p>Tip: Use first the other search box to find the id of the league that you need </p>
+                <div class ="busqueda" id="busqid">
+                        <input type="text" class="searchbar" id="searchbarid" placeholder="ID...">
+                        <input type="button" class="searchbtn" id="searchbtnid" value="Search"> 
+                    </div>
+           </div>
+           <div class="contbusqcountry">
+               <h3>Search leagues for countries</h3>
+               <p>Tip: Search the name of the cuntry that you want in English please</p>
+                <div class ="busqueda" id="busqcountry">
+                        <input type="text" class="searchbar" id="searchbarcountry" placeholder="Country...">
+                        <input type="button" class="searchbtn" id="searchbtncountry" value="Search"> 
+                    </div>
+           </div>
        </div>
        <section class="degr"></section>
         <section id="resultados">
