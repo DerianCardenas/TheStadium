@@ -3,18 +3,27 @@ body{
 }
 h3{
     color: yellow;
-    font-size: 2em;
+    font-size: 1.5em;
     text-align: center;
 }
-.contbusq{
-    width: 100%;
-    background-color: #005f73;
-    padding: 3em 0;
+.contbusqs{
+  display: flex;
+  width: 100%;
+  background-color: #005f73;
+  margin: 0 auto;
+  padding: 3em 0;
+}
+.contbusq, .contbusqid, .contbusqcountry{
+    width: 50%;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    justify-content: center;
 }
 .busqueda{
     display: flex;
     padding-top: 1.5em;
-    width: 40%;
     margin: 0 auto;
     align-items: center;
     justify-items: center;
@@ -23,7 +32,7 @@ h3{
     margin: 0 auto;
 }
 .searchbar{
-    width: 70%;
+    width: 60%;
     padding-left: .5em;
     height: 2em;
     border-radius: 1em;
@@ -59,13 +68,10 @@ h3{
       0px 5px 8px 0px rgba(0, 0, 0, 0.14),
       0px 1px 14px 0px rgba(0, 0, 0, 0.12);
     overflow: hidden;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: center center;  
     z-index: auto;
-    background-size: cover;
-    background:content-box;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 90%;
   }
   
   .info {
@@ -74,7 +80,7 @@ h3{
     max-height: 400px;
     background-color: #fff;
     transform: translateY(100%)
-      translateY(-88px)
+      translateY(-90px)
       translateZ(0);
     transition: transform 0.5s ease-out;
   }
@@ -90,8 +96,8 @@ h3{
     filter: blur(10px);
     background-size: cover;
     opacity: 0.25;
-    transform: translateY(-100%)
-      translateY(88px)
+    transform: translateY(-110%)
+      translateY(90px)
       translateZ(0);
     transition: transform 0.5s ease-out;
   }
@@ -118,6 +124,68 @@ h3{
     padding-bottom: 5em;
   }
   .description img{
+      margin-top: 2em;
       height: 90px;
       width: 120px;
   }
+.cardunit{
+  display: flex;
+  height: auto;
+  width: 80%;
+  margin: 1em auto;
+}
+.logocont{
+  display: block;
+}
+.imglogo{
+  width: auto;
+  height: auto;
+}
+.infocont{
+  display: block;
+  font-size: 1.5em;
+  color: #005f73;
+  font-weight: bold;
+  margin: 1em auto;
+}
+.infounit{
+  text-align: center;
+}
+.contteams{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.contequipo{
+  padding: 1em 0;
+  margin: 1em auto;
+  display: flex;
+  width: 90%;
+  align-items: center;
+  border-radius: 1.5em;
+  transition: 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.contequipo:hover{
+  background-color: #005f73;
+  color:white;
+  justify-content: center;
+  text-align: justify;
+}
+@media (max-width:1000px){
+  .contbusqs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .contbusq, .contbusqid, .contbusqcountry{
+    width: 80%;
+    margin: 1em auto;
+  }
+}
+@media (max-width:600px){
+  .contbusqs{
+    display: block;
+  }
+  .contbusq, .contbusqid, .contbusqcountry{
+    width: 80%;
+    margin: 1em auto;
+  }
+}
