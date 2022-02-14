@@ -131,7 +131,10 @@ h3{
 .cardunit{
   display: flex;
   height: auto;
+  background-color: #005f73;
   width: 80%;
+  padding: 2em 1em;
+  border-radius: 1.5em;
   margin: 1em auto;
 }
 .logocont{
@@ -144,7 +147,7 @@ h3{
 .infocont{
   display: block;
   font-size: 1.5em;
-  color: #005f73;
+  color: white;
   font-weight: bold;
   margin: 1em auto;
 }
@@ -161,6 +164,7 @@ h3{
   display: flex;
   width: 90%;
   align-items: center;
+  text-align: center;
   border-radius: 1.5em;
   transition: 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
@@ -168,7 +172,7 @@ h3{
   background-color: #005f73;
   color:white;
   justify-content: center;
-  text-align: justify;
+  text-align: center;
 }
 @media (max-width:1000px){
   .contbusqs{
@@ -179,6 +183,9 @@ h3{
     width: 80%;
     margin: 1em auto;
   }
+  .contteams{
+    grid-template-columns: 1fr 1fr;
+  }
 }
 @media (max-width:600px){
   .contbusqs{
@@ -186,6 +193,17 @@ h3{
   }
   .contbusq, .contbusqid, .contbusqcountry{
     width: 80%;
-    margin: 1em auto;
+    margin: 1.5em auto;
+  }
+  .contteams{
+    display: block;
+  }
+  .contequipo{
+    margin: 0 auto;
+    align-items: center;
+    justify-items: center;
+  }
+  .contequipo div{
+    margin: .5em auto;
   }
 }
