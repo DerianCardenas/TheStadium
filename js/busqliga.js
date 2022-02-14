@@ -3,10 +3,11 @@ const rmChildsNodes = (parent)=>{
         parent.removeChild(parent.firstChild);
     }
 }
+/* BUSQUEDA POR NOMBRE */
 document.getElementById("searchbtn").addEventListener("click",()=>{
     var busqueda = document.getElementById("searchbar").value;
     if(busqueda=='')
-        alert("Introduzca un nombre de liga");
+        alert("Type a league name");
     else{
         document.getElementById("searchbar").value ='';
         fetch("https://v3.football.api-sports.io/leagues?search="+busqueda, {
@@ -48,10 +49,11 @@ function displayligas(resultados){
         container.appendChild(contliga);
     }
 }
+/* BUSQUEDA POR ID */
 document.getElementById("searchbtnid").addEventListener("click",()=>{
     let ident = document.getElementById("searchbarid").value;
     if(ident=='')
-        alert("Introduzca un ID de liga");
+        alert("Type a ID");
     else{
         document.getElementById("searchbarid").value ='';
         console.log("Buscar id: "+ident)
@@ -125,10 +127,11 @@ function displayteamsbyleague(equipos, container){
     }
     container.append(contteams);
 }
+/* BUSQUEDA POR PAÍS */
 document.getElementById("searchbtncountry").addEventListener("click",()=>{
     let pais = document.getElementById("searchbarcountry").value;
     if(pais=='')
-        alert("Introduzca un pais de liga");
+        alert("Type a name");
     else{
         document.getElementById("searchbarcountry").value ='';
         console.log("Buscar pais: "+pais)
@@ -140,7 +143,34 @@ document.getElementById("searchbtncountry").addEventListener("click",()=>{
             }
         })
         .then(response => response.json())
-        .then(result => console.log(result.response))
+        .then(result => displayleaguescountry(result.response))
         .catch(error => console.log('error', error)); 
     }
 })
+function displayleaguescountry(resultados){
+    var container = document.getElementById("resultados");
+    container.style.display="grid";
+    rmChildsNodes(container);
+    for(let i = 0; i < resultados.length;i++){
+        console.log(liga);
+        var liga = resultados[i];
+        let contliga = document.createElement("div");
+        contliga.className="card";
+        let continfo = document.createElement("div");
+        continfo.className="info";
+        let nombre = document.createElement("h1");
+        nombre.className="title";
+        let info = document.createElement("div");
+        let band = document.createElement("img");
+        let texto = document.createElement("p");
+        info.className="description"
+        contliga.style.backgroundImage="url('"+liga.league.logo+"')";
+        nombre.innerText=liga.league.name;
+        texto.innerText="The "+liga.league.name+" is a "+liga.league.type+" competition in "+liga.country.name+"\nYou can search more about this league with his id: "+liga.league.id;
+        band.src=liga.country.flag;
+        info.append(texto,band);
+        continfo.append(nombre,info);
+        contliga.append(continfo);
+        container.appendChild(contliga);
+    }
+}
