@@ -4,6 +4,7 @@
        <meta charset="UTF-8">
        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
        <link rel="stylesheet" href="css/styles.css" media="screen" type="text/css">
+       <link rel="stylesheet" href="css/styles-teams.css" media="screen" type="text/css">
    </head>
    <header>
        <span id="logotext">The Stadium</span>
@@ -17,9 +18,28 @@
        <i id="burger" class="fas fa-bars"></i>
    </header>
    <body>
-        
+       <div class="contteambusquedas">
+            <div class="lista">    
+                <h3>CASES OF SEARCH</h3> 
+                <select id="searchcases"> 
+                    <option value="1">NAME</option>
+                    <option value="2">ID</option>
+                    <option value="3">COUNTRY</option>
+                </select>
+            </div>
+            <div class="search">
+                <h3>PARAMETER OF SEARCH</h3> 
+                <input type="text" class="searchbar" id="searchteambar" placeholder="Type...">
+                <input type="button" class="searchbtn" id="searchteambtn" value="Search"> 
+            </div>
+       </div>
+       <section class="degr"></section>
+       <div id="teamscontainer">
+
+       </div>
    </body>
    <footer>
        <script src="js/header.js"></script>
+       <script src="js/busqequipo.js"></script>
    </footer>
 </html>
