@@ -5,52 +5,77 @@ h3{
     color: yellow;
     font-size: 1.5em;
     text-align: center;
-}
-.contbusqs{
+}.contteambusquedas{
+  background-color: #005f73;
   display: flex;
   width: 100%;
-  background-color: #005f73;
+  padding: 2em 0;
+  padding-top: 4em;
+}
+.contteambusquedas h3{
+  color: yellow;
+  font-size: 1.7em;
+  padding-bottom: .5em;
+}
+.lista{
+  border-color: #005f73;
+  border-right-color: #0ecef5;
+  border-width: 1em;
+  border-style: double;
+  display: block;
+  width: 35%;
   margin: 0 auto;
-  padding: 3em 0;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  padding: .5em 0;
 }
-.contbusq, .contbusqid, .contbusqcountry{
-    width: 50%;
-    font-size: 15px;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-    justify-content: center;
+.search{
+  border-color: #005f73;
+  border-left-color: #0ecef5;
+  border-width: 1em;
+  border-style: double;
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  padding: .5em 0;
 }
-.busqueda{
-    display: flex;
-    padding-top: 1.5em;
-    margin: 0 auto;
-    align-items: center;
-    justify-items: center;
-}
+
 .searchbar, .searchbtn{
-    margin: 0 auto;
+  margin: 0 auto;
 }
 .searchbar{
-    width: 60%;
-    padding-left: .5em;
-    height: 2em;
-    border-radius: 1em;
-    border-color: yellow;
+  width: 40%;
+  padding-left: .5em;
+  height: 2em;
+  margin-right: 1em;
+  border-radius: 1em;
+  border-color: yellow;
 }
 .searchbtn{
-    height: 2em;
-    border-radius: 1em;
-    color: #005f73;
-    width: 25%;
-    font-size: 1em;
-    font-weight: bolder;
-    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  height: 2em;
+  border-radius: 1em;
+  color: #005f73;
+  width: 20%;
+  font-size: 1em;
+  font-weight: bolder;
+  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .searchbtn:hover{
-    color: #005f73;
-    background-color: #0ecef5;
-    cursor: pointer;
+  color: #005f73;
+  background-color: #0ecef5;
+  cursor: pointer;
+}
+select{
+  width: 40%;
+  border-color:#0ecef5;
+  border-width: .2em;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  border-radius: 1em;
+  transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 #resultados{
     background-color: #00b4d8;
@@ -187,23 +212,14 @@ h3{
     grid-template-columns: 1fr 1fr;
   }
 }
-@media (max-width:600px){
-  .contbusqs{
+@media (max-width:680px){
+  .contteambusquedas{
+    padding-top: 1em;
     display: block;
   }
-  .contbusq, .contbusqid, .contbusqcountry{
-    width: 80%;
-    margin: 1.5em auto;
-  }
-  .contteams{
-    display: block;
-  }
-  .contequipo{
-    margin: 0 auto;
-    align-items: center;
-    justify-items: center;
-  }
-  .contequipo div{
-    margin: .5em auto;
+  .lista, .search{
+    margin-top: 1em;
+    width: 90%;
+    border: none;
   }
 }
