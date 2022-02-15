@@ -4,6 +4,7 @@
        <meta charset="UTF-8">
        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
        <link rel="stylesheet" href="css/styles.css" media="screen" type="text/css">
+       <link rel="stylesheet" href="css/styles-players.css" medoa="screen" type="text/css">
    </head>
    <header>
        <span id="logotext">The Stadium</span>
@@ -17,9 +18,34 @@
        <i id="burger" class="fas fa-bars"></i>
    </header>
    <body>
-        
+    <div class="contplayerbusquedas">
+        <div class="continfo">
+            <label>The search needs this parameters: </label>
+            <li class="lista">Player ID & Season</li>
+            <li class="lista">Team ID & Season</li>
+            <li class="lista">League ID & Season</li>
+            <li class="lista">League ID, Team ID & Season</li>
+        </div>
+        <div class="contfilters">
+            <h3>Search Params</h3>
+            <div class="filters">
+                <input type="text" id="playerid" placeholder="Player ID...">
+                <input type="text" id="teamid" placeholder="Team ID...">
+                <input type="text" id="leagueid" placeholder="League ID...">
+                <input type="text" id="season" placeholder="Season (4 Numers: Start year)...">
+            </div>
+            <div class="btncont">
+                <input type="button" value="Search" id="btnplayersearch">
+            </div>
+        </div>
+    </div>
+    <section class="degr"></section>
+    <section id="resultados">
+
+    </section>
    </body>
    <footer>
        <script src="js/header.js"></script>
+       <script src="js/busqjugador.js"></script> 
    </footer>
 </html>
