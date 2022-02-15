@@ -70,7 +70,7 @@ function displayteams (datos){
         let estadioeq = document.createElement("img");
         logoequipo.src=equipo.team.logo;
         nombreeq.innerText = equipo.team.code+" - "+equipo.team.name;
-        infoeq.innerText = "Foundation date: "+equipo.team.founded+".\nStadium: "+equipo.venue.name+".\nCapacity: "+equipo.venue.capacity+".\nCity: "+equipo.venue.city;
+        infoeq.innerText = "ID: "+equipo.team.id+"\nFoundation date: "+equipo.team.founded+".\nStadium: "+equipo.venue.name+".\nCapacity: "+equipo.venue.capacity+".\nCity: "+equipo.venue.city;
         estadioeq.src=equipo.team.image;
         contdet.append(nombreeq,infoeq);
         contlogo.append(logoequipo);
