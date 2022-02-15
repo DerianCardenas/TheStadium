@@ -1,0 +1,70 @@
+body{
+    background-color: #00b4d8;
+}
+.contplayerbusquedas{
+    display: flex;
+    padding: 3em;
+    background-color: #005f73;
+}
+.continfo{
+    display: block;
+    background-color: #025161;
+    width: 40%;
+    margin: 0 auto;
+    padding: 2em;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    border-radius: 1.5em;
+    box-shadow: rgba(73, 73, 73, 0.945);
+    font-size: 1.5em;
+}
+.contplayerbusquedas h3{
+    color: yellow;
+    font-size: 1.7em;
+    text-align: center;
+    padding-bottom: .5em;
+}
+
+.contfilters{
+    background-color: #025161;
+    border-radius: 1.5em;
+    display: block;
+    width: 50%;
+    padding: 2em 0;
+    align-content: center;
+    justify-content: center;
+}
+.filters{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+}
+.filters input{
+    margin: .5em auto;
+    height: 1.5em;
+    border-radius: 1em;
+    border-color: yellow;
+    width: 60%;
+}
+.btncont{
+    display: flex;
+}
+#btnplayersearch{
+    height: 2em;
+    border-radius: 1em;
+    color: #005f73;
+    width: 20%;
+    font-size: 1em;
+    margin: 0 auto;
+    margin-top: .5em;
+    font-weight: bolder;
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+#btnplayersearch:hover{
+    color: #005f73;
+    background-color: #0ecef5;
+    cursor: pointer;
+}
