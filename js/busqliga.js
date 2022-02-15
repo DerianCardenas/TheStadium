@@ -3,28 +3,60 @@ const rmChildsNodes = (parent)=>{
         parent.removeChild(parent.firstChild);
     }
 }
-/* BUSQUEDA POR NOMBRE */
-document.getElementById("searchbtn").addEventListener("click",()=>{
-    var busqueda = document.getElementById("searchbar").value;
-    if(busqueda=='')
-        alert("Type a league name");
+document.getElementById("searchleaguebtn").addEventListener("click",()=>{
+    var busqueda = document.getElementById("searchleaguebar").value;
+    var searchcases = document.getElementById("searchcases");
+    if(busqueda==''){
+        alert("Put something...");
+    }
     else{
-        document.getElementById("searchbar").value ='';
-        fetch("https://v3.football.api-sports.io/leagues?search="+busqueda, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "v3.football.api-sports.io",
-                "x-rapidapi-key": "14f44082a9ec83a9b7546335315189b7"
-            }
-        })
-        .then(response => response.json())
-        .then(result => displayligas(result.response))
-        .catch(error => console.log('error', error)); 
+        document.getElementById("searchleaguebar").value='';
+        /* SEARCH BY NAME */
+        if(searchcases.selectedIndex==0){
+            fetch("https://v3.football.api-sports.io/leagues?search="+busqueda, {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "v3.football.api-sports.io",
+                    "x-rapidapi-key": "14f44082a9ec83a9b7546335315189b7"
+                }
+            })
+            .then(response => response.json())
+            .then(result => displayligas(result.response))
+            .catch(error => console.log('error', error)); 
+        }
+        /* SEARCH BY ID */
+        else if(searchcases.selectedIndex==1){
+            fetch("https://v3.football.api-sports.io/leagues?id="+busqueda, {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "v3.football.api-sports.io",
+                    "x-rapidapi-key": "14f44082a9ec83a9b7546335315189b7"
+                }
+            })
+            .then(response => response.json())
+            .then(result => displayliga(result.response))
+            .catch(error => console.log('error', error)); 
+        }
+        /* SEARCH BY COUNTRY */
+        else{
+            fetch("https://v3.football.api-sports.io/leagues?country="+busqueda, {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "v3.football.api-sports.io",
+                    "x-rapidapi-key": "14f44082a9ec83a9b7546335315189b7"
+                }
+            })
+            .then(response => response.json())
+            .then(result => displayleaguescountry(result.response))
+            .catch(error => console.log('error', error)); 
+        }
     }
 })
+/* BUSQUEDA POR NOMBRE */
 function displayligas(resultados){
     var container = document.getElementById("resultados");
     container.style.display="grid";
+    console.log(resultados);
     rmChildsNodes(container);
     for(let i = 0; i < resultados.length;i++){
         console.log(liga);
@@ -50,25 +82,6 @@ function displayligas(resultados){
     }
 }
 /* BUSQUEDA POR ID */
-document.getElementById("searchbtnid").addEventListener("click",()=>{
-    let ident = document.getElementById("searchbarid").value;
-    if(ident=='')
-        alert("Type a ID");
-    else{
-        document.getElementById("searchbarid").value ='';
-        console.log("Buscar id: "+ident)
-        fetch("https://v3.football.api-sports.io/leagues?id="+ident, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "v3.football.api-sports.io",
-                "x-rapidapi-key": "14f44082a9ec83a9b7546335315189b7"
-            }
-        })
-        .then(response => response.json())
-        .then(result => displayliga(result.response))
-        .catch(error => console.log('error', error)); 
-    }
-})
 function displayliga(resultado){
     var container = document.getElementById("resultados");
     container.style.display="block";
@@ -128,25 +141,6 @@ function displayteamsbyleague(equipos, container){
     container.append(contteams);
 }
 /* BUSQUEDA POR PAÍS */
-document.getElementById("searchbtncountry").addEventListener("click",()=>{
-    let pais = document.getElementById("searchbarcountry").value;
-    if(pais=='')
-        alert("Type a name");
-    else{
-        document.getElementById("searchbarcountry").value ='';
-        console.log("Buscar pais: "+pais)
-        fetch("https://v3.football.api-sports.io/leagues?country="+pais, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "v3.football.api-sports.io",
-                "x-rapidapi-key": "14f44082a9ec83a9b7546335315189b7"
-            }
-        })
-        .then(response => response.json())
-        .then(result => displayleaguescountry(result.response))
-        .catch(error => console.log('error', error)); 
-    }
-})
 function displayleaguescountry(resultados){
     var container = document.getElementById("resultados");
     container.style.display="grid";
