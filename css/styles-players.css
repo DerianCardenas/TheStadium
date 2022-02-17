@@ -74,11 +74,14 @@ body{
 }
 .contplayer{
     display:inline-block;
-    width: 90%
+    width: 90%;
+    align-items: center;
+    align-content:center;
     margin: .5em;
 }
 .contimg{
     disply: block;
+    align-items: center;
 }
 .contimg img{
     margin: 0 auto;   
