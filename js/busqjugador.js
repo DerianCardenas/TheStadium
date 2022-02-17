@@ -60,13 +60,17 @@ function crateplayers  (listado) {
     rmChildsNodes(containersupreme);
     for(let i = 0; i < listado.length; i++){
         let contplayer = document.createElement("div");
+        contplayer.className="contplayer";
         let contimg = document.createElement("div");
+        contimg.className="contimg";
         let photo = document.createElement("img");
         photo.src=listado[i].player.photo;
         let infofast = document.createElement("div");
+        infofast.className="infofast";
         infofast.innerText=listado[i].player.name+" - Age: "+listado[i].player.age+" ID - "+listado[i].player.id;
         contimg.append(photo,infofast);
         let infodet = document.createElement("div");
+        infodet.className="infodet";
         let text = document.createElement("p");
         let detalles='';
         detalles="First Name: "+listado[i].player.firstname+"\nLast Name: "+listado[i].player.lastname+"\nWeight: "+listado[i].player.weight+" Height: "+listado[i].player.height;
