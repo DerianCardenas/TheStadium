@@ -73,7 +73,7 @@ body{
     grid-template-columns:1fr 1fr 1fr;
 }
 .contplayer{
-    display:flex;
+    display:inline-block;
     width: 90%
     margin: .5em;
 }
