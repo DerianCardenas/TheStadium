@@ -68,6 +68,10 @@ body{
     background-color: #0ecef5;
     cursor: pointer;
 }
+#resultados{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+}
 .contplayer{
     display:flex;
     width: 90%
