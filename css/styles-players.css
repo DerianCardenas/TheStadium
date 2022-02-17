@@ -68,3 +68,19 @@ body{
     background-color: #0ecef5;
     cursor: pointer;
 }
+.contplayer{
+    display:flex;
+    width: 90%
+    margin: .5em;
+}
+.contimg{
+    disply: block;
+}
+.contimg img{
+    margin: 0 auto;   
+}
+.infodet{
+    display:block;
+    text-align:center;
+    font-size:.7em;
+}
