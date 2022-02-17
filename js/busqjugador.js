@@ -4,17 +4,15 @@ const rmChildsNodes = (parent)=>{
     }
 }
 document.getElementById("btnplayersearch").addEventListener("click",()=>{
-    var busqplayerid = document.getElementById("playerid").value;
     var busqteamid = document.getElementById("teamid").value;
-    var busqleagueid = document.getElementById("leagueid").value;
+    var busqname = document.getElementById("namep").value;
     var busqseason = document.getElementById("season").value;
-    document.getElementById("playerid").value='';
     document.getElementById("teamid").value='';
-    document.getElementById("leagueid").value='';
+    document.getElementById("namep").value='';
     document.getElementById("season").value='';
-    if(busqplayerid!=''&&busqseason!=''){
-        console.log("Buscar al ID "+busqplayerid+" en la temporada "+busqseason);
-        fetch("https://v3.football.api-sports.io/players?id="+busqplayerid+"&season="+busqseason, {
+    if(busqname!=''&&busqseason!=''&&busqteamid!=''){
+        console.log("Buscar al jugador "+busqname+" en la temporada "+busqseason+" con el equipo "+busqteamid);
+        fetch("https://v3.football.api-sports.io/players?team="+busqteamid+"&search="+busqname+"&season="+busqseason, {
                 "method": "GET",
                 "headers": {
                     "x-rapidapi-host": "v3.football.api-sports.io",
@@ -22,57 +20,40 @@ document.getElementById("btnplayersearch").addEventListener("click",()=>{
                 }
             })
             .then(response => response.json())
-            .then(result => crateplayers(result.response))
-            .catch(error => console.log('error', error)); 
-    }
-    else if(busqteamid!=''&&busqseason!=''){
-        console.log("Buscar por el equipo "+busqteamid+" en la temporada "+busqseason);
-        fetch("https://v3.football.api-sports.io/players?team="+busqteamid+"&season="+busqseason, {
-                "method": "GET",
-                "headers": {
-                    "x-rapidapi-host": "v3.football.api-sports.io",
-                    "x-rapidapi-key": "14f44082a9ec83a9b7546335315189b7"
-                }
-            })
-            .then(response => response.json())
-            .then(result => crateplayers(result.response))
-            .catch(error => console.log('error', error)); 
-    }
-    else if(busqleagueid!=''&&busqseason!=''){
-        console.log("Buscar la liga "+busqleagueid+" en la temporada "+busqseason);
-        fetch("https://v3.football.api-sports.io/players?league="+busqleagueid+"&season="+busqseason, {
-                "method": "GET",
-                "headers": {
-                    "x-rapidapi-host": "v3.football.api-sports.io",
-                    "x-rapidapi-key": "14f44082a9ec83a9b7546335315189b7"
-                }
-            })
-            .then(response => response.json())
-            .then(result => crateplayers(result.response))
+            .then(result => crateplayers(result.response[0]))
             .catch(error => console.log('error', error)); 
     }
     else{
         alert("PLEASE FILL THE NECESARY PARAMS");
     }
 })
-function crateplayers  (listado) {
+function crateplayers  (jugador) {
     var containersupreme = document.getElementById("resultados");
     rmChildsNodes(containersupreme);
-    for(let i = 0; i < listado.length; i++){
-        let contplayer = document.createElement("div");
-        let contimg = document.createElement("div");
-        let photo = document.createElement("img");
-        photo.src=listado[i].player.photo;
-        let infofast = document.createElement("div");
-        infofast.innerText=listado[i].player.name+" - Age: "+listado[i].player.age+" ID - "+listado[i].player.id;
-        contimg.append(photo,infofast);
-        let infodet = document.createElement("div");
-        let text = document.createElement("p");
-        let detalles='';
-        detalles="First Name: "+listado[i].player.firstname+"\nLast Name: "+listado[i].player.lastname+"\nWeight: "+listado[i].player.weight+" Height: "+listado[i].player.height;
-        detalles+="\nNationality: "+listado[i].player.birth.country+"\nBirth PLace: "+listado[i].player.birth.place+" Date: "+listado[i].player.birth.date;
-        infodet.innerText=detalles;
-        contplayer.append(contimg,infodet);
-        containersupreme.append(contplayer);
+    var contplayer = document.createElement("div");
+    contplayer.className="contplayer";
+    var contprofile = document.createElement("div");
+    let profileimg = document.createElement("img");
+    profileimg.className="profileimg";
+    var continfo = document.createElement("div");
+    var infotext = document.createElement("p");
+    infotext.className="infotext";
+    var contstadistics = document.createElement("div");
+    var info = "Name: "+jugador.player.firstname+" "+jugador.player.lastname+" ID: "+jugador.player.id;
+    info+="\n\nAge (Actual):"+jugador.player.age+" Height: "+jugador.player.height+" Weight:"+jugador.player.weight;
+    info+="\n\nBirth Info\nCity: "+jugador.player.birth.place+" Date: "+jugador.player.birth.date+" Country";
+    profileimg.src=jugador.player.photo;
+    infotext.append(info);
+    continfo.append(infotext);
+    contprofile.append(profileimg);
+    var stadistics = '';
+    for(let i = 0; i < jugador.statistics.length; i++){
+        stadistics+="Competition = "+jugador.statistics[i].league.name+" Country = "+jugador.statistics[i].league.country+"\n";
+        stadistics+="\nCards = Y("+jugador.statistics[i].cards.yellow+") R("+jugador.statistics[i].cards.red+") RY("+jugador.statistics[i].cards.yellowred+")\n";
+        stadistics+="\nGoals = "+jugador.statistics[i].goals.total+" Assist = "+jugador.statistics[i].goals.assists+" Conceded = "+jugador.statistics[i].goals.conceded+"\n";
     }
+    contstadistics.innerText=stadistics;
+    contprofile.append(continfo);
+    contplayer.append(contprofile,contstadistics);
+    containersupreme.append(contplayer);
 }
