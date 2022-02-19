@@ -129,7 +129,9 @@ function displayteamsbyleague(equipos, container){
         let infoeq = document.createElement("p");
         let estadioeq = document.createElement("img");
         logoequipo.src=equipo.team.logo;
-        nombreeq.innerText = equipo.team.code+" - "+equipo.team.name;
+        let codigo = equipo.team.code;
+        if(codigo==null) codigo='???';
+        nombreeq.innerText = codigo+" - "+equipo.team.name;
         infoeq.innerText = "Foundation date: "+equipo.team.founded+".\nStadium: "+equipo.venue.name+".\nCapacity: "+equipo.venue.capacity+".\nCity: "+equipo.venue.city;
         estadioeq.src=equipo.team.image;
         contdet.append(nombreeq,infoeq);
