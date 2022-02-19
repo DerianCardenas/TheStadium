@@ -28,6 +28,7 @@ document.getElementById("btnplayersearch").addEventListener("click",()=>{
     }
 })
 function crateplayers  (jugador) {
+    console.log(jugador);
     var containersupreme = document.getElementById("resultados");
     rmChildsNodes(containersupreme);
     var contplayer = document.createElement("div");
@@ -36,24 +37,38 @@ function crateplayers  (jugador) {
     let profileimg = document.createElement("img");
     profileimg.className="profileimg";
     var continfo = document.createElement("div");
+    continfo.className="continfotxt";
     var infotext = document.createElement("p");
-    infotext.className="infotext";
     var contstadistics = document.createElement("div");
-    var info = "Name: "+jugador.player.firstname+" "+jugador.player.lastname+" ID: "+jugador.player.id;
-    info+="\n\nAge (Actual):"+jugador.player.age+" Height: "+jugador.player.height+" Weight:"+jugador.player.weight;
-    info+="\n\nBirth Info\nCity: "+jugador.player.birth.place+" Date: "+jugador.player.birth.date+" Country";
+    var info = "Name: "+jugador.player.firstname+" "+jugador.player.lastname+"\nID: "+jugador.player.id;
+    info+="\n\nAge (Actual): "+jugador.player.age+" Height: "+jugador.player.height+" Weight: "+jugador.player.weight;
+    info+="\n\nBirth City: "+jugador.player.birth.place+" \nDate: "+jugador.player.birth.date+" Country: "+jugador.player.birth.country;
     profileimg.src=jugador.player.photo;
-    infotext.append(info);
+    infotext.innerText=info;
     continfo.append(infotext);
-    contprofile.append(profileimg);
     var stadistics = '';
     for(let i = 0; i < jugador.statistics.length; i++){
-        stadistics+="Competition = "+jugador.statistics[i].league.name+" Country = "+jugador.statistics[i].league.country+"\n";
-        stadistics+="\nCards = Y("+jugador.statistics[i].cards.yellow+") R("+jugador.statistics[i].cards.red+") RY("+jugador.statistics[i].cards.yellowred+")\n";
-        stadistics+="\nGoals = "+jugador.statistics[i].goals.total+" Assist = "+jugador.statistics[i].goals.assists+" Conceded = "+jugador.statistics[i].goals.conceded+"\n";
+        let liga = jugador.statistics[i].league.name;
+        let pais = jugador.statistics[i].league.country;
+        let amarillas = jugador.statistics[i].cards.yellow;
+        let rojas = jugador.statistics[i].cards.red;
+        let amaroja = jugador.statistics[i].cards.yellowred;
+        let goles = jugador.statistics[i].goals.total;
+        let asistencias = jugador.statistics[i].goals.assists;
+        let recibidos = jugador.statistics[i].goals.conceded;
+        if (pais == null) pais = 'Unknown';
+        if (rojas == null) rojas = 0;
+        if (amarillas == null) amarillas = 0;
+        if (amaroja == null) amaroja = 0;
+        if (goles == null) goles = 0;
+        if (asistencias == null) asistencias = 0;
+        if (recibidos == null) recibidos = 0;
+        stadistics+="Competition = "+liga+" -  Country = "+pais+"\n";
+        stadistics+="\nCards = Y("+amarillas+") R("+rojas+") RY("+amaroja+")\n";
+        stadistics+="\nGoals = "+goles+" Assist = "+asistencias+" Conceded = "+recibidos+"\n\n";
     }
     contstadistics.innerText=stadistics;
-    contprofile.append(continfo);
+    contprofile.append(profileimg,continfo);
     contplayer.append(contprofile,contstadistics);
     containersupreme.append(contplayer);
 }
