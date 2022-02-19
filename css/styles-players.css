@@ -102,3 +102,28 @@ body{
 .infotext{
     text-align: center;
 }
+.continfotxt{
+    display: block;
+    
+}
+@media (max-width:800px){
+    .continfo, .contfilters{
+        height: auto;
+    }
+    .continfo{
+        display: block;
+        text-align: left;
+    }
+    .filters input{
+        width: 90%;
+    }
+}
+@media (max-width:800px){
+    .contplayerbusquedas{
+        display: block;
+    }
+    .continfo, .contfilters{
+        width: auto;
+        margin: 1em auto;
+    }
+}
