@@ -221,6 +221,23 @@ header ul{
         transform: translateX(0);
     }
 }
+@media (max-width:800px) {
+    .contdetails{
+        display: block;
+    }
+    .conttext{
+        text-align: center;
+        width: 90%;
+        margin: 1em auto;
+    }
+    .contimg{
+        display: flex;
+        align-content: center;
+    }
+    .contimg img{
+        display: none;
+    }
+}
 @media (max-width:750px) {
     .contcards{
         display: block;
